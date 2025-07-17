@@ -7,8 +7,10 @@ using api.Models;
 
 namespace api.Mappers
 {
+    // Mapper for stocks
     public static class StockMappers
     {
+        // Method to convert stock model to stock dto
         public static StockDto ToStockDto(this Stock stockModel)
         {
             return new StockDto
@@ -24,6 +26,7 @@ namespace api.Mappers
             };
         }
 
+        // Method to convert create stock dto to stock model
         public static Stock ToStockFromCreateDto(this CreateStockDto stockDto)
         {
             return new Stock

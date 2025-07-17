@@ -10,10 +10,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace api.Controllers
 {
+    // Route prefix to comment
     [Route("api/comment")]
     [ApiController]
     public class CommentController : ControllerBase
     {
+        // Constructor with dependency injection
         private readonly ICommentRepository _commentRepo;
         private readonly IStockRepository _stockRepo;
         public CommentController(ICommentRepository commentRepo, IStockRepository stockRepo)
@@ -22,6 +24,7 @@ namespace api.Controllers
             _stockRepo = stockRepo;
         }
 
+        // Route to get all comments
         [HttpGet]
         public async Task<ActionResult> GetAllAsync()
         {
@@ -33,6 +36,7 @@ namespace api.Controllers
             return Ok(commentDto);
         }
 
+        // Route to get comment by id
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
@@ -48,6 +52,7 @@ namespace api.Controllers
             return Ok(comment.ToCommentDto());
         }
 
+        // Route to create a comment
         [HttpPost("{stockId:int}")]
         public async Task<IActionResult> Create([FromRoute] int stockId, [FromBody] CreateCommentDto commentDto)
         {
@@ -64,6 +69,7 @@ namespace api.Controllers
             return CreatedAtAction(nameof(GetById), new { id = commentModel.Id }, commentModel.ToCommentDto());
         }
 
+        // Route to update a comment
         [HttpPut]
         [Route("{id:int}")]
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateCommentDto updateDto)
@@ -80,6 +86,7 @@ namespace api.Controllers
             return Ok(commentModel.ToCommentDto());
         }
 
+        // Route to delete a comment
         [HttpDelete]
         [Route("{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id)

@@ -12,14 +12,17 @@ using Microsoft.EntityFrameworkCore;
 
 namespace api.Repository
 {
+    // Repository for comments
     public class CommentRepository : ICommentRepository
     {
+        // Constructor with dependency injection
         private readonly ApplicationDBContext _context;
         public CommentRepository(ApplicationDBContext context)
         {
             _context = context;
         }
 
+        // Method to create a comment
         public async Task<Comment> CreateAsync(Comment commentModel)
         {
             await _context.Comments.AddAsync(commentModel);
@@ -27,16 +30,19 @@ namespace api.Repository
             return commentModel;
         }
 
+        // Method to get all comments
         public async Task<List<Comment>> GetAllAsync()
         {
             return await _context.Comments.ToListAsync();
         }
 
+        // Method to get a comment by id
         public async Task<Comment?> GetByIdAsync(int id)
         {
             return await _context.Comments.FindAsync(id);
         }
 
+        // Method to update a comment
         public async Task<Comment?> UpdateAsync(int id, Comment commentModel)
         {
             var existingComment = await _context.Comments.FindAsync(id);
@@ -50,6 +56,7 @@ namespace api.Repository
             return existingComment;
         }
 
+        // Method to delete a comment
         public async Task<Comment?> DeleteAsync(int id)
         {
             var commentModel = await _context.Comments.FindAsync(id);

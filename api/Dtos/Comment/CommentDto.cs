@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace api.Dtos.Comment
 {
+    // DTO for comments
     public class CommentDto
     {
         public int Id { get; set; }

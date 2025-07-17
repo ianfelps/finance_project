@@ -8,6 +8,7 @@ using api.Models;
 
 namespace api.Interfaces
 {
+    // Interface for stock repository
     public interface IStockRepository
     {
         Task<List<Stock>> GetAllAsync(QueryObject query);

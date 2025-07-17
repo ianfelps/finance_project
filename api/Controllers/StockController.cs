@@ -12,10 +12,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace api.Controllers
 {
+    // Route prefix to stock
     [Route("api/stock")]
     [ApiController]
     public class StockController : ControllerBase
     {
+        // Constructor with dependency injection
         private readonly ApplicationDBContext _context;
         private readonly IStockRepository _stockRepo;
         public StockController(ApplicationDBContext context, IStockRepository stockRepo)
@@ -24,6 +26,7 @@ namespace api.Controllers
             _context = context;
         }
 
+        // Route to get all stocks
         [HttpGet]
         public async Task<IActionResult> GetAll([FromQuery] QueryObject query)
         {
@@ -35,6 +38,7 @@ namespace api.Controllers
             return Ok(stocks);
         }
 
+        // Route to get stock by id
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
@@ -49,6 +53,7 @@ namespace api.Controllers
             return Ok(stock.ToStockDto());
         }
 
+        // Route to create a stock
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateStockDto stockDto)
         {
@@ -60,6 +65,7 @@ namespace api.Controllers
             return CreatedAtAction(nameof(GetById), new { id = stockModel.Id }, stockModel.ToStockDto());
         }
 
+        // Route to update a stock
         [HttpPut]
         [Route("{id:int}")]
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdateStockDto updateDto)
@@ -76,6 +82,7 @@ namespace api.Controllers
             return Ok(stockModel.ToStockDto());
         }
 
+        // Route to delete a stock
         [HttpDelete]
         [Route("{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id)

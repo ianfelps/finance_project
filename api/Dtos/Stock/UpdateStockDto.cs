@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace api.Dtos.Stock
 {
+    // DTO for updating stocks
     public class UpdateStockDto
     {
         [Required]

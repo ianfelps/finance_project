@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace api.Dtos.Comment
 {
+    // DTO for updating comments
     public class UpdateCommentDto
     {
         [Required]

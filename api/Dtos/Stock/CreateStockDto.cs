@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace api.Dtos.Stock
 {
+    // DTO for creating stocks
     public class CreateStockDto
     {
         [Required]

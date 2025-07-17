@@ -6,6 +6,7 @@ using api.Dtos.Comment;
 
 namespace api.Dtos.Stock
 {
+    // DTO for stocks
     public class StockDto
     {
         public int Id { get; set; }

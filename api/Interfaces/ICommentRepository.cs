@@ -6,6 +6,7 @@ using api.Models;
 
 namespace api.Interfaces
 {
+    // Interface for comment repository
     public interface ICommentRepository
     {
         Task<List<Comment>> GetAllAsync();
