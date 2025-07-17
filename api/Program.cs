@@ -1,4 +1,5 @@
 using api.Data;
+using api.Helpers;
 using api.Interfaces;
 using api.Repository;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Prevent circular references
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+{
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+});
 
 // Configure the database
 builder.Services.AddDbContext<ApplicationDBContext>(options =>

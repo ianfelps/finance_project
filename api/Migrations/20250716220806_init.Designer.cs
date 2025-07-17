@@ -12,7 +12,7 @@ using api.Data;
 namespace api.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20250716133830_init")]
+    [Migration("20250716220806_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -25,7 +25,7 @@ namespace api.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("api.Models.Comments", b =>
+            modelBuilder.Entity("api.Models.Comment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -88,7 +88,7 @@ namespace api.Migrations
                     b.ToTable("Stocks");
                 });
 
-            modelBuilder.Entity("api.Models.Comments", b =>
+            modelBuilder.Entity("api.Models.Comment", b =>
                 {
                     b.HasOne("api.Models.Stock", "Stock")
                         .WithMany("Comments")
