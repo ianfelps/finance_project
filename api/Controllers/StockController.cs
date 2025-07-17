@@ -7,14 +7,16 @@ using api.Dtos.Stock;
 using api.Helpers;
 using api.Interfaces;
 using api.Mappers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.Controllers
 {
-    // Route prefix to stock
+    // Controller for stocks
     [Route("api/stock")]
     [ApiController]
+    [Authorize]
     public class StockController : ControllerBase
     {
         // Constructor with dependency injection

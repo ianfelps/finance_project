@@ -5,14 +5,16 @@ using System.Threading.Tasks;
 using api.Dtos.Comment;
 using api.Interfaces;
 using api.Mappers;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace api.Controllers
 {
-    // Route prefix to comment
+    // Controller for comments
     [Route("api/comment")]
     [ApiController]
+    [Authorize]
     public class CommentController : ControllerBase
     {
         // Constructor with dependency injection
@@ -48,7 +50,7 @@ namespace api.Controllers
             {
                 return NotFound("Comment not found!");
             }
-            
+
             return Ok(comment.ToCommentDto());
         }
 
