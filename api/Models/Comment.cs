@@ -17,5 +17,7 @@ namespace api.Models
         // Create relationship between comments and stock
         public int? StockId { get; set; }
         public Stock? Stock { get; set; } // Navigation property
+        public string? AppUserId { get; set; }
+        public AppUser? AppUser { get; set; }
     }
 }
