@@ -1,0 +1,22 @@
+INSERT INTO Stocks (Symbol, CompanyName, Purchase, LastDiv, Industry, MarketCap)
+VALUES
+('AAPL', 'Apple Inc.', 194.50, 0.96, 'Technology', 3010000000000),
+('MSFT', 'Microsoft Corporation', 348.10, 0.75, 'Technology', 2590000000000),
+('GOOGL', 'Alphabet Inc.', 130.22, 0.00, 'Technology', 1650000000000),
+('JPM', 'JPMorgan Chase & Co.', 155.75, 1.05, 'Financial Services', 452000000000),
+('V', 'Visa Inc.', 241.60, 0.45, 'Financial Services', 497000000000),
+('AMZN', 'Amazon.com, Inc.', 135.50, 0.00, 'Consumer Cyclical', 1400000000000),
+('TSLA', 'Tesla, Inc.', 260.05, 0.00, 'Consumer Cyclical', 825000000000),
+('JNJ', 'Johnson & Johnson', 165.20, 1.19, 'Healthcare', 430000000000),
+('PG', 'The Procter & Gamble Company', 152.80, 0.94, 'Consumer Defensive', 355000000000),
+('PBR', 'Petr�leo Brasileiro S.A. - Petrobras', 14.50, 0.55, 'Energy', 95000000000),
+('NVDA', 'NVIDIA Corporation', 470.25, 0.04, 'Technology', 1150000000000),
+('UNH', 'UnitedHealth Group Incorporated', 505.50, 1.88, 'Healthcare', 460000000000),
+('WMT', 'Walmart Inc.', 160.10, 0.57, 'Consumer Defensive', 430000000000),
+('VALE', 'Vale S.A.', 13.80, 0.35, 'Basic Materials', 62000000000),
+('ITUB', 'Ita� Unibanco Holding S.A.', 5.80, 0.03, 'Financial Services', 55000000000),
+('CVX', 'Chevron Corporation', 162.70, 1.51, 'Energy', 305000000000),
+('BAC', 'Bank of America Corporation', 31.50, 0.24, 'Financial Services', 250000000000),
+('KO', 'The Coca-Cola Company', 62.10, 0.48, 'Consumer Defensive', 265000000000),
+('ABEV', 'Ambev S.A.', 2.95, 0.08, 'Consumer Defensive', 46000000000),
+('BRK-B', 'Berkshire Hathaway Inc.', 365.40, 0.00, 'Financial Services', 780000000000);
