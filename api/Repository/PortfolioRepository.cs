@@ -43,16 +43,13 @@ namespace api.Repository
         // Method to get user portfolio
         public async Task<List<Stock>> GetUserPortfolio(AppUser user)
         {
-            return await _context.Portfolios.Where(u => u.AppUserId == user.Id).Select(stock => new Stock
-            {
-                Id = stock.StockId,
-                Symbol = stock.Stock!.Symbol,
-                CompanyName = stock.Stock.CompanyName,
-                Purchase = stock.Stock.Purchase,
-                LastDiv = stock.Stock.LastDiv,
-                Industry = stock.Stock.Industry,
-                MarketCap = stock.Stock.MarketCap
-            }).ToListAsync();
+            return await _context.Portfolios
+                .Where(p => p.AppUserId == user.Id)
+                .Include(p => p.Stock)
+                .ThenInclude(s => s!.Comments)
+                .ThenInclude(c => c.AppUser)
+                .Select(p => p.Stock!)
+                .ToListAsync();
         }
     }
 }
