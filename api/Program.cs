@@ -23,11 +23,16 @@ builder.Services.AddSwaggerGen();
 // Configure swagger
 builder.Services.AddSwaggerGen(option =>
 {
-    option.SwaggerDoc("v1", new OpenApiInfo { Title = "Demo API", Version = "v1" });
+    option.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "API Documentation",
+        Version = "v1",
+        Description = "API for managing user portfolios, stock actions, and comments, featuring JWT-based authentication."
+    });
     option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
-        Description = "Please enter a valid token",
+        Description = "Enter a valid JWT token.",
         Name = "Authorization",
         Type = SecuritySchemeType.Http,
         BearerFormat = "JWT",

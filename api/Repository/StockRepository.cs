@@ -26,6 +26,7 @@ namespace api.Repository
         {
             await _context.Stocks.AddAsync(stockModel);
             await _context.SaveChangesAsync();
+
             return stockModel;
         }
 
@@ -33,6 +34,7 @@ namespace api.Repository
         public async Task<Stock?> DeleteAsync(int id)
         {
             var stockModel = await _context.Stocks.FirstOrDefaultAsync(x => x.Id == id);
+
             if (stockModel == null)
             {
                 return null;
@@ -40,6 +42,7 @@ namespace api.Repository
 
             _context.Stocks.Remove(stockModel);
             await _context.SaveChangesAsync();
+
             return stockModel;
         }
 
@@ -98,6 +101,7 @@ namespace api.Repository
         public async Task<Stock?> UpdateAsync(int id, UpdateStockDto stockDto)
         {
             var existingStock = await _context.Stocks.FirstOrDefaultAsync(x => x.Id == id);
+
             if (existingStock == null)
             {
                 return null;
@@ -109,7 +113,9 @@ namespace api.Repository
             existingStock.LastDiv = stockDto.LastDiv;
             existingStock.Industry = stockDto.Industry;
             existingStock.MarketCap = stockDto.MarketCap;
+
             await _context.SaveChangesAsync();
+
             return existingStock;
         }
     }

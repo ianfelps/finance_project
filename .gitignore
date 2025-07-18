@@ -4,4 +4,4 @@
 **/[Rr]elease/
 .vs/
 .vscode/
-.env
+appsettings.json

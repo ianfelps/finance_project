@@ -40,6 +40,7 @@ namespace api.Controllers
 
             var comments = await _commentRepo.GetAllAsync();
             var commentDto = comments.Select(s => s.ToCommentDto());
+
             return Ok(commentDto);
         }
 
@@ -51,6 +52,7 @@ namespace api.Controllers
                 return BadRequest(ModelState);
 
             var comment = await _commentRepo.GetByIdAsync(id);
+
             if (comment == null)
             {
                 return NotFound("Comment not found!");
@@ -75,8 +77,9 @@ namespace api.Controllers
             var appUser = await _userManager.FindByNameAsync(username);
 
             var commentModel = commentDto.ToCommentFromCreateDto(stockId);
-            commentModel.AppUserId = appUser.Id;
+            commentModel.AppUserId = appUser!.Id;
             await _commentRepo.CreateAsync(commentModel);
+
             return CreatedAtAction(nameof(GetById), new { id = commentModel.Id }, commentModel.ToCommentDto());
         }
 
@@ -89,6 +92,7 @@ namespace api.Controllers
                 return BadRequest(ModelState);
 
             var commentModel = await _commentRepo.UpdateAsync(id, updateDto.ToCommentFromUpdate());
+
             if (commentModel == null)
             {
                 return NotFound("Comment not found!");
@@ -106,6 +110,7 @@ namespace api.Controllers
                 return BadRequest(ModelState);
 
             var commentModel = await _commentRepo.DeleteAsync(id);
+
             if (commentModel == null)
             {
                 return NotFound("Comment not found!");

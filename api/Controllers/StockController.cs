@@ -37,6 +37,7 @@ namespace api.Controllers
 
             var stocks = await _stockRepo.GetAllAsync(query);
             var stockDto = stocks.Select(s => s.ToStockDto()).ToList();
+
             return Ok(stockDto);
         }
 
@@ -48,10 +49,12 @@ namespace api.Controllers
                 return BadRequest(ModelState);
 
             var stock = await _stockRepo.GetByIdAsync(id);
+
             if (stock == null)
             {
                 return NotFound("Stock not found!");
             }
+
             return Ok(stock.ToStockDto());
         }
 
@@ -64,6 +67,7 @@ namespace api.Controllers
 
             var stockModel = stockDto.ToStockFromCreateDto();
             await _stockRepo.CreateAsync(stockModel);
+
             return CreatedAtAction(nameof(GetById), new { id = stockModel.Id }, stockModel.ToStockDto());
         }
 
@@ -76,6 +80,7 @@ namespace api.Controllers
                 return BadRequest(ModelState);
 
             var stockModel = await _stockRepo.UpdateAsync(id, updateDto);
+
             if (stockModel == null)
             {
                 return NotFound("Stock not found!");
@@ -93,6 +98,7 @@ namespace api.Controllers
                 return BadRequest(ModelState);
 
             var stockModel = await _stockRepo.DeleteAsync(id);
+
             if (stockModel == null)
             {
                 return NotFound("Stock not found!");
