@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace api.Helpers
 {
-    // Query object for filtering, sorting and pagination
+    // Query object for filtering, sorting and pagination of stocks
     public class QueryObject
     {
         public string? Symbol { get; set; } = null;

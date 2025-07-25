@@ -144,7 +144,7 @@ Todos os endpoints, exceto `/register` e `/login`, requerem um token JWT de auto
 | :--- | :--- | :--- | :--- |
 | `GET` | `/api/comment` | Retorna todos os comentários existentes no sistema. | Requerida |
 | `GET` | `/api/comment/{id}` | Busca e retorna um comentário específico pelo seu ID. | Requerida |
-| `POST` | `/api/comment/{stockId}` | Cria um novo comentário associado a uma ação específica. | Requerida |
+| `POST` | `/api/comment/{symbol}` | Cria um novo comentário associado a uma ação específica. | Requerida |
 | `PUT` | `/api/comment/{id}` | Atualiza o conteúdo de um comentário existente. | Requerida |
 | `DELETE` | `/api/comment/{id}` | Remove um comentário do sistema. | Requerida |
 
@@ -173,6 +173,7 @@ Você precisará criar ou modificar o arquivo `api/appsettings.json` para adicio
     }
   },
   "AllowedHosts": "*",
+  "FMPKey": "???",
   "JWT": {
     "Issuer": "???",
     "Audience": "???",
@@ -181,7 +182,9 @@ Você precisará criar ou modificar o arquivo `api/appsettings.json` para adicio
 }
 ```
 
-**Importante:** *Atualize todos os campos com `???` com suas configurações corretas e válidas.*
+**Importante:**
+- *Atualize todos os campos com `???` com suas configurações corretas e válidas.*
+- *FMPKey pode ser obtido no site [Financial Modeling Prep](https://site.financialmodelingprep.com/developer/docs/).*
 
 
 ### 2. Atualizar o Banco de Dados
