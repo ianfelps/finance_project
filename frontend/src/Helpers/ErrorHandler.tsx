@@ -1,4 +1,3 @@
-import axios from "axios";
 import { toast } from "react-toastify";
 
 export const handleError = (error: any) => {
@@ -13,7 +12,7 @@ export const handleError = (error: any) => {
         }
     } else if (err?.data) {
         toast.warning(err.data);
-    } else if (err?.status == 401) {
+    } else if (err?.status === 401) {
         toast.warning("Please login to continue!");
         window.history.pushState({}, "LoginPage", "/login");
     } else if (err) {

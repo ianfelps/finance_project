@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { CompanyIncomeStatement } from '../../company';
 import { useOutletContext } from 'react-router-dom';
 import { getIncomeStatement } from '../../api';
@@ -83,7 +83,7 @@ const IncomeStatment = (props: Props) => {
       setIncomeStatement(result!.data);
     };
     incomeStatement();
-  }, [])
+  }, [ticker])
   return (
     <div>
       {incomeStatement ? (
