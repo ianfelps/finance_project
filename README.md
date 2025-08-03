@@ -81,7 +81,7 @@ O projeto está dividido em duas partes principais:
 
 ### 1. Configuração do Backend
 
-A configuração detalhada do backend (API e banco de dados) está disponível no arquivo [`/api/README.md`](./api/README.md). Siga as instruções lá para preparar o ambiente backend.
+A configuração detalhada do backend (API e banco de dados) está disponível [`aqui`](./api/README.md). Siga as instruções lá para preparar o ambiente backend.
 
 ### 2. Configuração do Frontend
 
@@ -97,10 +97,10 @@ npm install
 Crie um arquivo `.env` na raiz da pasta `frontend` com o seguinte conteúdo:
 
 ```env
-FMPKey=sua_chave_api_financial_modeling_prep
+REACT_APP_FMPKey=sua_chave_api_financial_modeling_prep
 ```
 
-Ajuste o valor de `FMKey` conforme a chave da sua API Financial Modeling Prep.
+Ajuste o valor de `REACT_APP_FMPKey` conforme a chave da sua API Financial Modeling Prep.
 
 #### 2.3. Executar a Aplicação
 

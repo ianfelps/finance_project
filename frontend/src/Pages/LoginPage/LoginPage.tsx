@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 
 type Props = {};
 
-type LoginFormsInputs = {
+type LoginFormInputs = {
     userName: string;
     password: string;
 };
@@ -17,8 +17,8 @@ const validation = Yup.object().shape({
 
 const LoginPage = (props: Props) => {
     const { loginUser } = useAuth();
-    const { register, handleSubmit, formState: { errors } } = useForm<LoginFormsInputs>({ resolver: yupResolver(validation)});
-    const handleLogin = (form: LoginFormsInputs) => {
+    const { register, handleSubmit, formState: { errors } } = useForm<LoginFormInputs>({ resolver: yupResolver(validation)});
+    const handleLogin = (form: LoginFormInputs) => {
         loginUser(form.userName, form.password);
     };
   return (

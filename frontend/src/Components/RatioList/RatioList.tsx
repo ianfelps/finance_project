@@ -1,7 +1,7 @@
 type Props = {
     config: any;
     data: any;
-}
+};
 
 const RatioList = ({ config, data }: Props) => {
     const renderedRows = config.map((row: any) => {
