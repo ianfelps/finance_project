@@ -154,3 +154,5 @@ finance_project/
 ---
 
 *O projeto foi desenvolvido com base no curso completo do criador **Teddy Smith** no YouTube, que abrange toda a stack utilizada neste projeto. [Finance Project - Teddy Smith](https://youtube.com/playlist?list=PL82C6-O4XrHcNJd4ejg8pX5fZaIDZmXyn&si=5cUnRxUPg-yj8_6H)*
+
+*Projeto desenvolvido com fins educacionais e de aprendizado em uma nova tecnologia!*
